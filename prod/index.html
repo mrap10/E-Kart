@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Kart</title>
+    <link rel="stylesheet" href="output.css">
+    <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar - Starts Here -->
+    <nav class="bg-slate-200 shadow-lg shadow-gray-400/80">
+        <div class="flex place-content-between px-3">
+            <div>
+                <img class="h-12 w-auto" src="../img/logo.png" alt="Logo">
+            </div>
+            <div class="pt-2">
+                <div class="text-xl">
+                    <a class="px-4 hover:text-green-700" href="index.html">Home</a>
+                    <a class="px-4 hover:text-green-700" href="shop.html">Shop</a>
+                    <a class="px-4 hover:text-green-700" href="about.html">About</a>
+                    <a class="px-4 hover:text-green-700" href="contact.html">Contact</a>
+                    <a class="px-4 hover:text-green-700" href="signin.html">Sign In</a>
+                    <a href="cart.html"><i id="bag" class="fa-solid fa-cart-shopping"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar - Ends Here -->
+
+    <div style="background-image: url(../img/bg.png);" class="bg-top bg-cover mt-2">
+        <div class="py-20 h-[90vh] w-full ">
+            <div class="flex flex-col place-items-center flex-initial w-2/4 pt-[100px] text-left">
+                <h4 class="text-2xl font-normal">Trade-in-offer</h4>
+                <h1 class="text-4xl font-medium">Super value deals</h1>
+                <h1 class="text-green-700 text-4xl font-medium">On all products</h1>
+                <p class="text-2xl mt-3">Save more with coupons & up to 70% off!</p>
+                <a class="border-0 mt-4 hover:bg-green-400 hover:text-black w-[110px] rounded-lg p-[14px] cursor-pointer bg-green-500" href="shop.html">Shop Now</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features - Section starts here -->
+    <section class="features">
+        <div class="flex flex-row place-items-center items-center mt-10 mb-2">
+            <div class="relative max-w-xl mx-auto">
+                <img class="h-64 w-full object-cover rounded-md" src="../img/features/shipping.jpg" alt="Free Shipping">
+                <div class="absolute inset-0 bg-gray-700 opacity-60 rounded-md"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <h2 class="text-white text-3xl font-bold">Free Shipping</h2>
+                </div>
+            </div>
+    
+            <div class="relative max-w-xl mx-auto">
+                <img class="h-64 w-full object-cover rounded-md" src="../img/features/money.png" alt="Save money">
+                <div class="absolute inset-0 bg-gray-700 opacity-60 rounded-md"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <h2 class="text-white text-3xl font-bold">Save Money</h2>
+                </div>
+            </div>
+    
+            <div class="relative max-w-xl mx-auto">
+                <img class="h-64 w-full object-cover rounded-md" src="../img/features/customer.png" alt="customer support">
+                <div class="absolute inset-0 bg-gray-700 opacity-60 rounded-md"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <h2 class="text-white text-3xl font-bold">24x7 Customer Support</h2>
+                </div>
+            </div>
+    
+            <div class="relative max-w-xl mx-auto">
+                <img class="h-64 w-full object-cover rounded-md" src="../img/features/offer.avif" alt="unlimited offers">
+                <div class="absolute inset-0 bg-gray-700 opacity-60 rounded-md"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <h2 class="text-white text-3xl font-bold">Unlimited Offers</h2>
+                </div>
+            </div>
+    
+            <div class="relative max-w-xl mx-auto">
+                <img class="h-64 w-full object-cover rounded-md" src="../img/features/delivery.jpeg" alt="Swift Delivery">
+                <div class="absolute inset-0 bg-gray-700 opacity-60 rounded-md"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <h2 class="text-white text-3xl font-bold">Swift Delivery</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Features - Section ends here -->
+
+    <!-- Featured Product - Section starts here -->
+    <div class="mb-2 mt-5">
+        <div class="flex flex-col items-center">
+            <h2 class="text-4xl font-semibold text-orange-400">Featured Products</h2>
+            <p class="text-2xl font-medium">~ Summer Collections ~</p>
+        </div>
+        
+        <div class="flex flex-row place-content-evenly">
+            <div class="antialiased text-gray-900 ">
+                <div class="bg-gray- w-auto p-8 flex items-center justify-center">
+                  <div class="bg-white rounded-lg overflow-hidden shadow-2xl relative">
+                    <div class="absolute top-0 right-0 bg-red-500 text-white px-2 py-1 m-2 rounded-md text-sm font-medium">
+                        SALE
+                    </div>
+                    <img class="h-48 w-full object-cover object-end" src="../img/products/f4.jpg" alt="Prod">
+                    <div class="p-6">
+                      <h4 class="mt-2 font-semibold text-lg leading-tight truncate">Fabric Beach t-shirt</h4>          
+                      <div class="mt-1">
+                        <span>Rs 999</span>
+                      </div>
+                      <div class="mt-2 flex items-center">
+                        <span class="text-teal-600 font-semibold">
+                            <span>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="antialiased text-gray-900 ">
+                <div class="bg-gray- w-auto p-8 flex items-center justify-center">
+                  <div class="bg-white rounded-lg overflow-hidden shadow-2xl relative">
+                    <div class="absolute top-0 right-0 bg-red-500 text-white px-2 py-1 m-2 rounded-md text-sm font-medium">
+                        SALE
+                    </div>
+                    <img class="h-48 w-full object-cover object-end" src="../img/products/f6.jpg" alt="Prod">
+                    <div class="p-6">
+                      <h4 class="mt-2 font-semibold text-lg leading-tight truncate">Men's shirt</h4>          
+                      <div class="mt-1">
+                        <span>Rs 1299</span>
+                      </div>
+                      <div class="mt-2 flex items-center">
+                        <span class="text-teal-600 font-semibold">
+                            <span>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="antialiased text-gray-900 ">
+                <div class="bg-gray- w-auto p-8 flex items-center justify-center">
+                  <div class="bg-white rounded-lg overflow-hidden shadow-2xl relative">
+                    <div class="absolute top-0 right-0 bg-red-500 text-white px-2 py-1 m-2 rounded-md text-sm font-medium">
+                        SALE
+                    </div>
+                    <img class="h-48 w-full object-cover object-end" src="../img/products/n6.jpg" alt="Prod">
+                    <div class="p-6">
+                      <h4 class="mt-2 font-semibold text-lg leading-tight truncate">Men's Half-Pants</h4>          
+                      <div class="mt-1">
+                        <span>Rs 699</span>
+                      </div>
+                      <div class="mt-2 flex items-center">
+                        <span class="text-teal-600 font-semibold">
+                            <span>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="antialiased text-gray-900 ">
+                <div class="bg-gray- w-auto p-8 flex items-center justify-center">
+                  <div class="bg-white rounded-lg overflow-hidden shadow-2xl relative">
+                    <div class="absolute top-0 right-0 bg-red-500 text-white px-2 py-1 m-2 rounded-md text-sm font-medium">
+                        SALE
+                    </div>
+                    <img class="h-48 w-full object-cover object-end" src="../img/products/n7.jpg" alt="Prod">
+                    <div class="p-6">
+                      <h4 class="mt-2 font-semibold text-lg leading-tight truncate">Casual Shirt</h4>          
+                      <div class="mt-1">
+                        <span>Rs 899</span>
+                      </div>
+                      <div class="mt-2 flex items-center">
+                        <span class="text-teal-600 font-semibold">
+                            <span>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+    <!-- Featured Product - Section ends here -->
+
+    <section class="banner m-2">
+        <div class="flex flex-col items-center place-content-center" style="background-image: url(../img/b2.jpg);">
+            <h3 class="pt-8 text-1xl text-white">March Merry</h3>
+            <h1 class="text-5xl font-semibold text-white pt-3 pb-10">Up to <span class="text-red-700 text-4xl">70% off</span>-All t-shirt & Accessories</h1>
+            <a class="border-0 mb-4 hover:bg-green-400 hover:text-black w-[110px] rounded-lg p-[14px] cursor-pointer bg-green-500" href="shop.html">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Footer - Section starts here -->
+    <footer class="w-full bg-gray-900 px-4 text-white pt-8 flex flex-col md:flex-row flex-wrap justify-evenly md:px-12">
+        <div>
+            <img class="w-30 h-16 rounded-full" src="../img/logo.png" alt="">
+            <p class="my-4">Email: contact.ekart@google.com</p>
+            <p class="pb-3">
+                Reach us at: <br> 
+                123, 1st Cross, 1st Block, <br>
+                Koramangala, Bangalore - 560034
+            </p>
+        </div>
+
+        <div>
+            <h2 class="font-bold text-xl mt-4">E - Kart</h2>
+            <div class="w-32 h-1 border-b-2 border-yellow-500 rounded-2xl my-1">
+                <a class="w-auto" href="about.html">About us</p>
+                <p>FAQs</p>
+            </div>
+        </div>
+
+        <div class="mt-3 pt-5">
+            <a href="contact.html">Contact us</p>
+        </div>
+
+        <div class="mt-3 pt-5">
+            <p>Happy Shopping!</p>
+            <p>Enjoy adding the Karts!</p>
+        </div>
+    </footer>
+    <!-- Footer - Section ends here -->
+
+</body>
+</html>
