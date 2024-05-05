@@ -17,9 +17,9 @@
             </div>
             
             <div class="py-0.5">
-                <form action="" class="max-w-[480px] w-full px-4">
+                <form action="" class="max-w-[480px] w-full px-4" id="search-form">
                     <div class="h-12 relative">
-                        <input type="text" name="q" class="w-full border h-12 shadow p-4 rounded-full bg-gray-600 text-white" placeholder="Search product">
+                        <input type="text" name="q" id="search-input" class="w-full border h-12 shadow p-4 rounded-full bg-gray-600 text-white" placeholder="Search product">
                         <button type="submit">
                             <svg class="text-teal-300 absolute h-4 w-5 top-3.5 right-3 fill-current"
                                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
@@ -41,7 +41,10 @@
                     <a class="px-4 hover:text-green-700" href="about.html">About</a>
                     <a class="px-4 hover:text-green-700" href="contact.html">Contact</a>
                     <a class="px-4 hover:text-green-700" href="signin.html">Sign In</a>
-                    <a href="cart.html"><i id="bag" class="fa-solid fa-cart-shopping"></i></a>
+                    <a href="cart.html">
+                        <i id="bag cart-icon" class="fa-solid fa-cart-shopping"></i>
+                        <span id="cart-counter" class="text-xs">0</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -63,31 +66,31 @@
     
             <div class="flex place-content-center">
                 <div class="inline-flex rounded-md" role="group">
-                    <button type="button" class="px-6 py-2 text-1xl font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100 hover:text-blue-700 focus:z-5 focus:ring-1 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white">
+                    <button type="button" class="filter-btn px-6 py-2 text-1xl font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100 hover:text-blue-700 focus:z-5 focus:ring-1 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white" data-filter="shirts">
                     Shirts
                     </button>
-                    <button type="button" class="px-6 py-2 text-1xl font-medium text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-5 focus:ring-1 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white">
+                    <button type="button" class="filter-btn px-6 py-2 text-1xl font-medium text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-5 focus:ring-1 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white" data-filter="tshirts">
                     Tshirts
                     </button>
-                    <button type="button" class="px-6 py-2 text-1xl font-medium text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-5 focus:ring-1 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white">
+                    <button type="button" class="filter-btn px-6 py-2 text-1xl font-medium text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-5 focus:ring-1 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white" data-filter="blazers">
                     Blazers
                     </button>
-                    <button type="button" class="px-6 py-2 text-1xl font-medium text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-5 focus:ring-1 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white">
+                    <button type="button" class="filter-btn px-6 py-2 text-1xl font-medium text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-5 focus:ring-1 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white" data-filter="shorts">
                     Shorts
                     </button>
-                    <button type="button" class="px-6 py-2 text-1xl font-medium text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-5 focus:ring-1 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white">
+                    <button type="button" class="filter-btn px-6 py-2 text-1xl font-medium text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-5 focus:ring-1 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white" data-filter="pajamas">
                     Pajamas
                     </button>
-                    <button type="button" class="px-6 py-2 text-1xl font-medium text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-5 focus:ring-1 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white">
+                    <button type="button" class="filter-btn px-6 py-2 text-1xl font-medium text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-5 focus:ring-1 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white" data-filter="trackpants">
                     Trackpants
                     </button>
-                    <button type="button" class="px-6 py-2 text-1xl font-medium text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-5 focus:ring-1 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white">
+                    <button type="button" class="filter-btn px-6 py-2 text-1xl font-medium text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-5 focus:ring-1 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white" data-filter="kurtas">
                     Kurtas
                     </button>
-                    <button type="button" class="px-6 py-2 text-1xl font-medium text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-5 focus:ring-1 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white">
+                    <button type="button" class="filter-btn px-6 py-2 text-1xl font-medium text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-5 focus:ring-1 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white" data-filter="saree">
                     Saree
                     </button>
-                    <button type="button" class="px-6 py-2 text-1xl font-medium text-gray-900 bg-white border border-gray-200 rounded-e-lg hover:bg-gray-100 hover:text-blue-700 focus:z-5 focus:ring-1 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white">
+                    <button type="button" class="filter-btn px-6 py-2 text-1xl font-medium text-gray-900 bg-white border border-gray-200 rounded-e-lg hover:bg-gray-100 hover:text-blue-700 focus:z-5 focus:ring-1 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white" data-filter="dupatta">
                     Dupatta
                     </button>
                 </div>
@@ -101,12 +104,13 @@
         <div class="w-32 h-1 border-b-2 border-yellow-500 rounded-2xl my-1"></div>
     </div>
 
+
     <!-- Products Section - Starts Here -->
     <section id="Products"
     class="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
 
     <!-- Product card 1 - Starts Here -->
-    <div id="shirt" class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+    <div id="shirt" class="product-card w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl" data-category="shirts">
         <img src="./img/products/f1.jpg" alt="Product1" class="h-80 w-72 object-cover rounded-t-xl">
         <div class="px-4 py-3 w-72">
             <span class="text-gray-400 mr-3 uppercase text-xs">Raymond</span>
@@ -118,7 +122,7 @@
                         <p class="text-sm text-gray-600 cursor-auto ml-2">Rs 999</p>
                     </del>    
                 </div>
-                <div class="hover:cursor-pointer">
+                <div class="hover:cursor-pointer" id="add-to-cart-button">
                     <i class="fa-solid fa-bag-shopping"></i>
                 </div>
             </div>
@@ -127,7 +131,7 @@
     <!-- Product card 1 - Ends Here -->
 
     <!-- Product card 2 - Starts Here -->
-    <div id="shirt" class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+    <div id="shirt" class="product-card w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl" data-category="shirts">
         <img src="./img/products/f2.jpg" alt="Product2" class="h-80 w-72 object-cover rounded-t-xl">
         <div class="px-4 py-3 w-72">
             <span class="text-gray-400 mr-3 uppercase text-xs">Levi's</span>
@@ -139,7 +143,7 @@
                         <p class="text-sm text-gray-600 cursor-auto ml-2">Rs 999</p>
                     </del>    
                 </div>
-                <div class="hover:cursor-pointer">
+                <div class="hover:cursor-pointer" id="add-to-cart-button">
                     <i class="fa-solid fa-bag-shopping"></i>
                 </div>
             </div>
@@ -148,7 +152,7 @@
     <!-- Product card 2 - Ends Here -->
 
     <!-- Product card 3 - Starts Here -->
-    <div id="shirt" class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+    <div id="shirt" class="product-card w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl" data-category="shirts">
         <img src="./img/products/f3.jpg" alt="Product3" class="h-80 w-72 object-cover rounded-t-xl">
         <div class="px-4 py-3 w-72">
             <span class="text-gray-400 mr-3 uppercase text-xs">Tommmy Hilfinger</span>
@@ -160,7 +164,7 @@
                         <p class="text-sm text-gray-600 cursor-auto ml-2">Rs 999</p>
                     </del>    
                 </div>
-                <div class="hover:cursor-pointer">
+                <div class="hover:cursor-pointer" id="add-to-cart-button">
                     <i class="fa-solid fa-bag-shopping"></i>
                 </div>
             </div>
@@ -169,7 +173,7 @@
     <!-- Product card 3 - Ends Here -->
 
     <!-- Product card 4 - Starts Here -->
-    <div id="shirt" class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+    <div id="shirt" class="product-card w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl" data-category="shirts">
         <img src="./img/products/f6.jpg" alt="Product4" class="h-80 w-72 object-cover rounded-t-xl">
         <div class="px-4 py-3 w-72">
             <span class="text-gray-400 mr-3 uppercase text-xs">Levi's</span>
@@ -181,7 +185,7 @@
                         <p class="text-sm text-gray-600 cursor-auto ml-2">Rs 1299</p>
                     </del>    
                 </div>
-                <div class="hover:cursor-pointer">
+                <div class="hover:cursor-pointer" id="add-to-cart-button">
                     <i class="fa-solid fa-bag-shopping"></i>
                 </div>
             </div>
@@ -190,7 +194,7 @@
     <!-- Product card 4 - Ends Here -->
 
     <!-- Product card 5 - Starts Here -->
-    <div id="tshirt" class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+    <div id="tshirt" class="product-card w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl" data-category="tshirts">
         <img src="./img/products/t1.jpg" alt="Product5" class="h-80 w-72 object-cover rounded-t-xl">
         <div class="px-4 py-3 w-72">
             <span class="text-gray-400 mr-3 uppercase text-xs">KAJARU</span>
@@ -202,7 +206,7 @@
                         <p class="text-sm text-gray-600 cursor-auto ml-2">Rs 499</p>
                     </del>    
                 </div>
-                <div class="hover:cursor-pointer">
+                <div class="hover:cursor-pointer" id="add-to-cart-button">
                     <i class="fa-solid fa-bag-shopping"></i>
                 </div>
             </div>
@@ -211,7 +215,7 @@
     <!-- Product card 5 - Ends Here -->
 
     <!-- Product card 6 - Starts Here -->
-    <div id="shirt" class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+    <div id="shirt" class="product-card w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl" data-category="shirts">
         <img src="./img/products/n7.jpg" alt="Product6" class="h-80 w-72 object-cover rounded-t-xl">
         <div class="px-4 py-3 w-72">
             <span class="text-gray-400 mr-3 uppercase text-xs">Park Avenue</span>
@@ -223,7 +227,7 @@
                         <p class="text-sm text-gray-600 cursor-auto ml-2">Rs 999</p>
                     </del>    
                 </div>
-                <div class="hover:cursor-pointer">
+                <div class="hover:cursor-pointer" id="add-to-cart-button">
                     <i class="fa-solid fa-bag-shopping"></i>
                 </div>
             </div>
@@ -232,7 +236,7 @@
     <!-- Product card 6 - Ends Here -->
 
     <!-- Product card 7 - Starts Here -->
-    <div id="tshirt" class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+    <div id="tshirt" class="product-card w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl" data-category="tshirts">
         <img src="./img/products/t2.webp" alt="Product6" class="h-80 w-72 object-cover rounded-t-xl">
         <div class="px-4 py-3 w-72">
             <span class="text-gray-400 mr-3 text-xs">InkTrees</span>
@@ -244,7 +248,7 @@
                         <p class="text-sm text-gray-600 cursor-auto ml-2">Rs 499</p>
                     </del>    
                 </div>
-                <div class="hover:cursor-pointer">
+                <div class="hover:cursor-pointer" id="add-to-cart-button">
                     <i class="fa-solid fa-bag-shopping"></i>
                 </div>
             </div>
@@ -253,7 +257,7 @@
     <!-- Product card 7 - Ends Here -->
 
     <!-- Product card 8 - Starts Here -->
-    <div id="tshirt" class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+    <div id="tshirt" class="product-card w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl" data-category="tshirts">
         <img src="./img/products/t3.webp" alt="Product6" class="h-80 w-72 object-cover rounded-t-xl">
         <div class="px-4 py-3 w-72">
             <span class="text-gray-400 mr-3 uppercase text-xs">The souled store</span>
@@ -265,7 +269,7 @@
                         <p class="text-sm text-gray-600 cursor-auto ml-2">Rs 999</p>
                     </del>    
                 </div>
-                <div class="hover:cursor-pointer">
+                <div class="hover:cursor-pointer" id="add-to-cart-button">
                     <i class="fa-solid fa-bag-shopping"></i>
                 </div>
             </div>
@@ -274,7 +278,7 @@
     <!-- Product card 8 - Ends Here -->
 
     <!-- Product card 9 - Starts Here -->
-    <div id="tshirt" class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+    <div id="tshirt" class="product-card w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl" data-category="tshirts">
         <img src="./img/products/t4.webp" alt="Product6" class="h-80 w-72 object-cover rounded-t-xl">
         <div class="px-4 py-3 w-72">
             <span class="text-gray-400 mr-3 uppercase text-xs">Roadster</span>
@@ -286,7 +290,7 @@
                         <p class="text-sm text-gray-600 cursor-auto ml-2">Rs 799</p>
                     </del>    
                 </div>
-                <div class="hover:cursor-pointer">
+                <div class="hover:cursor-pointer" id="add-to-cart-button">
                     <i class="fa-solid fa-bag-shopping"></i>
                 </div>
             </div>
@@ -295,7 +299,7 @@
     <!-- Product card 9 - Ends Here -->
 
     <!-- Product card 10 - Starts Here -->
-    <div id="blazer" class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+    <div id="blazer" class="product-card w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl" data-category="blazers">
         <img src="./img/products/b1.avif" alt="Product6" class="h-80 w-72 object-cover rounded-t-xl">
         <div class="px-4 py-3 w-72">
             <span class="text-gray-400 mr-3 uppercase text-xs">Peter England</span>
@@ -307,7 +311,7 @@
                         <p class="text-sm text-gray-600 cursor-auto ml-2">Rs 1499</p>
                     </del>    
                 </div>
-                <div class="hover:cursor-pointer">
+                <div class="hover:cursor-pointer" id="add-to-cart-button">
                     <i class="fa-solid fa-bag-shopping"></i>
                 </div>
             </div>
@@ -316,7 +320,7 @@
     <!-- Product card 10 - Ends Here -->
 
     <!-- Product card 11 - Starts Here -->
-    <div id="blazer" class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+    <div id="blazer" class="product-card w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl" data-category="blazers">
         <img src="./img/products/b2.jpeg" alt="Product6" class="h-80 w-72 object-cover rounded-t-xl">
         <div class="px-4 py-3 w-72">
             <span class="text-gray-400 mr-3 uppercase text-xs">manq</span>
@@ -328,7 +332,7 @@
                         <p class="text-sm text-gray-600 cursor-auto ml-2">Rs 1599</p>
                     </del>    
                 </div>
-                <div class="hover:cursor-pointer">
+                <div class="hover:cursor-pointer" id="add-to-cart-button">
                     <i class="fa-solid fa-bag-shopping"></i>
                 </div>
             </div>
@@ -337,7 +341,7 @@
     <!-- Product card 11 - Ends Here -->
 
     <!-- Product card 12 - Starts Here -->
-    <div id="short" class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+    <div id="short" class="product-card w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl" data-category="shorts">
         <img src="./img/products/n6.jpg" alt="Product6" class="h-80 w-72 object-cover rounded-t-xl">
         <div class="px-4 py-3 w-72">
             <span class="text-gray-400 mr-3 uppercase text-xs">Highlander</span>
@@ -349,7 +353,7 @@
                         <p class="text-sm text-gray-600 cursor-auto ml-2">Rs 699</p>
                     </del>    
                 </div>
-                <div class="hover:cursor-pointer">
+                <div class="hover:cursor-pointer" id="add-to-cart-button">
                     <i class="fa-solid fa-bag-shopping"></i>
                 </div>
             </div>
@@ -358,7 +362,7 @@
     <!-- Product card 12 - Ends Here -->
 
     <!-- Product card 13 - Starts Here -->
-    <div id="pajama" class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+    <div id="pajama" class="product-card w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl" data-category="pajamas">
         <img src="./img/products/p1.webp" alt="Product6" class="h-80 w-72 object-cover rounded-t-xl">
         <div class="px-4 py-3 w-72">
             <span class="text-gray-400 mr-3 uppercase text-xs">Dressitude</span>
@@ -370,7 +374,7 @@
                         <p class="text-sm text-gray-600 cursor-auto ml-2">Rs 1199</p>
                     </del>    
                 </div>
-                <div class="hover:cursor-pointer">
+                <div class="hover:cursor-pointer" id="add-to-cart-button">
                     <i class="fa-solid fa-bag-shopping"></i>
                 </div>
             </div>
@@ -379,7 +383,7 @@
     <!-- Product card 13 - Ends Here -->
 
     <!-- Product card 14 - Starts Here -->
-    <div id="pajama" class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+    <div id="pajama" class="product-card w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl" data-category="pajamas">
         <img src="./img/products/p2.avif" alt="Product6" class="h-80 w-72 object-cover rounded-t-xl">
         <div class="px-4 py-3 w-72">
             <span class="text-gray-400 mr-3 uppercase text-xs">Tokyo Talkies</span>
@@ -391,7 +395,7 @@
                         <p class="text-sm text-gray-600 cursor-auto ml-2">Rs 899</p>
                     </del>    
                 </div>
-                <div class="hover:cursor-pointer">
+                <div class="hover:cursor-pointer" id="add-to-cart-button">
                     <i class="fa-solid fa-bag-shopping"></i>
                 </div>
             </div>
@@ -400,7 +404,7 @@
     <!-- Product card 14 - Ends Here -->
 
     <!-- Product card 15 - Starts Here -->
-    <div id="pajama" class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+    <div id="pajama" class="product-card w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl" data-category="pajamas">
         <img src="./img/products/p3.avif" alt="Product6" class="h-80 w-72 object-cover rounded-t-xl">
         <div class="px-4 py-3 w-72">
             <span class="text-gray-400 mr-3 uppercase text-xs">Van heusen</span>
@@ -412,7 +416,7 @@
                         <p class="text-sm text-gray-600 cursor-auto ml-2">Rs 799</p>
                     </del>    
                 </div>
-                <div class="hover:cursor-pointer">
+                <div class="hover:cursor-pointer" id="add-to-cart-button">
                     <i class="fa-solid fa-bag-shopping"></i>
                 </div>
             </div>
@@ -421,7 +425,7 @@
     <!-- Product card 15 - Ends Here -->
 
     <!-- Product card 16 - Starts Here -->
-    <div id="trackpants" class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+    <div id="trackpants" class="product-card w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl" data-category="trackpants">
         <img src="./img/products/tp1.jpg" alt="Product6" class="h-80 w-72 object-cover rounded-t-xl">
         <div class="px-4 py-3 w-72">
             <span class="text-gray-400 mr-3 uppercase text-xs">Highlander</span>
@@ -433,7 +437,7 @@
                         <p class="text-sm text-gray-600 cursor-auto ml-2">Rs 899</p>
                     </del>    
                 </div>
-                <div class="hover:cursor-pointer">
+                <div class="hover:cursor-pointer" id="add-to-cart-button">
                     <i class="fa-solid fa-bag-shopping"></i>
                 </div>
             </div>
@@ -442,7 +446,7 @@
     <!-- Product card 16 - Ends Here -->
     
     <!-- Product card 17 - Starts Here -->
-    <div id="trackpants" class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+    <div id="trackpants" class="product-card w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl" data-category="trackpants">
         <img src="./img/products/tp2.webp" alt="Product6" class="h-80 w-72 object-cover rounded-t-xl">
         <div class="px-4 py-3 w-72">
             <span class="text-gray-400 mr-3 uppercase text-xs">Puma</span>
@@ -454,7 +458,7 @@
                         <p class="text-sm text-gray-600 cursor-auto ml-2">Rs 1219</p>
                     </del>    
                 </div>
-                <div class="hover:cursor-pointer">
+                <div class="hover:cursor-pointer" id="add-to-cart-button">
                     <i class="fa-solid fa-bag-shopping"></i>
                 </div>
             </div>
@@ -463,7 +467,7 @@
     <!-- Product card 17 - Ends Here -->
 
     <!-- Product card 18 - Starts Here -->
-    <div id="kurta" class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+    <div id="kurta" class="product-card w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl" data-category="kurtas">
         <img src="./img/products/k1.webp" alt="Product6" class="h-80 w-72 object-cover rounded-t-xl">
         <div class="px-4 py-3 w-72">
             <span class="text-gray-400 mr-3 uppercase text-xs">Pantaloons</span>
@@ -475,7 +479,7 @@
                         <p class="text-sm text-gray-600 cursor-auto ml-2">Rs 1199</p>
                     </del>    
                 </div>
-                <div class="hover:cursor-pointer">
+                <div class="hover:cursor-pointer" id="add-to-cart-button">
                     <i class="fa-solid fa-bag-shopping"></i>
                 </div>
             </div>
@@ -484,7 +488,7 @@
     <!-- Product card 18 - Ends Here -->
 
     <!-- Product card 19 - Starts Here -->
-    <div id="kurta" class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+    <div id="kurta" class="product-card w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl" data-category="kurtas">
         <img src="./img/products/k2.webp" alt="Product6" class="h-80 w-72 object-cover rounded-t-xl">
         <div class="px-4 py-3 w-72">
             <span class="text-gray-400 mr-3 uppercase text-xs">Anouk</span>
@@ -496,7 +500,7 @@
                         <p class="text-sm text-gray-600 cursor-auto ml-2">Rs 1099</p>
                     </del>    
                 </div>
-                <div class="hover:cursor-pointer">
+                <div class="hover:cursor-pointer" id="add-to-cart-button">
                     <i class="fa-solid fa-bag-shopping"></i>
                 </div>
             </div>
@@ -505,7 +509,7 @@
     <!-- Product card 19 - Ends Here -->
     
     <!-- Product card 20 - Starts Here -->
-    <div id="saree" class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+    <div id="saree" class="product-card w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl" data-category="saree">
         <img src="./img/products/s1.jpg" alt="Product6" class="h-80 w-72 object-cover rounded-t-xl">
         <div class="px-4 py-3 w-72">
             <span class="text-gray-400 mr-3 uppercase text-xs">Sangria</span>
@@ -517,7 +521,7 @@
                         <p class="text-sm text-gray-600 cursor-auto ml-2">Rs 1499</p>
                     </del>    
                 </div>
-                <div class="hover:cursor-pointer">
+                <div class="hover:cursor-pointer" id="add-to-cart-button">
                     <i class="fa-solid fa-bag-shopping"></i>
                 </div>
             </div>
@@ -526,7 +530,7 @@
     <!-- Product card 20 - Ends Here -->
 
     <!-- Product card 21 - Starts Here -->
-    <div id="saree" class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+    <div id="saree" class="product-card w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl" data-category="saree">
         <img src="./img/products/s2.jpeg" alt="Product6" class="h-80 w-72 object-cover rounded-t-xl">
         <div class="px-4 py-3 w-72">
             <span class="text-gray-400 mr-3 uppercase text-xs">Sangria</span>
@@ -538,7 +542,7 @@
                         <p class="text-sm text-gray-600 cursor-auto ml-2">Rs 1599</p>
                     </del>    
                 </div>
-                <div class="hover:cursor-pointer">
+                <div class="hover:cursor-pointer" id="add-to-cart-button">
                     <i class="fa-solid fa-bag-shopping"></i>
                 </div>
             </div>
@@ -547,7 +551,7 @@
     <!-- Product card 21 - Ends Here -->
 
     <!-- Product card 22 - Starts Here -->
-    <div id="saree" class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+    <div id="saree" class="product-card w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl" data-category="saree">
         <img src="./img/products/s3.jpg" alt="Product6" class="h-80 w-72 object-cover rounded-t-xl">
         <div class="px-4 py-3 w-72">
             <span class="text-gray-400 mr-3 uppercase text-xs">Kalini</span>
@@ -559,7 +563,7 @@
                         <p class="text-sm text-gray-600 cursor-auto ml-2">Rs 1799</p>
                     </del>    
                 </div>
-                <div class="hover:cursor-pointer">
+                <div class="hover:cursor-pointer" id="add-to-cart-button">
                     <i class="fa-solid fa-bag-shopping"></i>
                 </div>
             </div>
@@ -568,7 +572,7 @@
     <!-- Product card 22 - Ends Here -->
 
     <!-- Product card 23 - Starts Here -->
-    <div id="dupatta" class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+    <div id="dupatta" class="product-card w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl" data-category="dupatta">
         <img src="./img/products/d1.jpg" alt="Product6" class="h-80 w-72 object-cover rounded-t-xl">
         <div class="px-4 py-3 w-72">
             <span class="text-gray-400 mr-3 uppercase text-xs">Rangriti</span>
@@ -580,7 +584,7 @@
                         <p class="text-sm text-gray-600 cursor-auto ml-2">Rs 589</p>
                     </del>    
                 </div>
-                <div class="hover:cursor-pointer">
+                <div class="hover:cursor-pointer" id="add-to-cart-button">
                     <i class="fa-solid fa-bag-shopping"></i>
                 </div>
             </div>
@@ -589,7 +593,7 @@
     <!-- Product card 23 - Ends Here -->
 
     <!-- Product card 24 - Starts Here -->
-    <div id="dupatta" class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+    <div id="dupatta" class="product-card w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl" data-category="dupatta">
         <img src="./img/products/d2.avif" alt="Product6" class="h-80 w-72 object-cover rounded-t-xl">
         <div class="px-4 py-3 w-72">
             <span class="text-gray-400 mr-3 uppercase text-xs">Dupatta bazaar</span>
@@ -601,7 +605,7 @@
                         <p class="text-sm text-gray-600 cursor-auto ml-2">Rs 429</p>
                     </del>    
                 </div>
-                <div class="hover:cursor-pointer">
+                <div class="hover:cursor-pointer" id="add-to-cart-button">
                     <i class="fa-solid fa-bag-shopping"></i>
                 </div>
             </div>
@@ -610,7 +614,7 @@
     <!-- Product card 24 - Ends Here -->
 
     <!-- Product card 25 - Starts Here -->
-    <div id="dupatta" class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+    <div id="dupatta" class="product-card w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl" data-category="dupatta">
         <img src="./img/products/d3.avif" alt="Product6" class="h-80 w-72 object-cover rounded-t-xl">
         <div class="px-4 py-3 w-72">
             <span class="text-gray-400 mr-3 uppercase text-xs">Pashmoda</span>
@@ -622,7 +626,7 @@
                         <p class="text-sm text-gray-600 cursor-auto ml-2">Rs 539</p>
                     </del>    
                 </div>
-                <div class="hover:cursor-pointer">
+                <div class="hover:cursor-pointer" id="add-to-cart-button">
                     <i class="fa-solid fa-bag-shopping"></i>
                 </div>
             </div>
@@ -739,7 +743,78 @@
     </footer>
     <!-- Footer - Ends here -->
 
-    <script src="category.js"></script>             <!-- TODO -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const filterButtons = document.querySelectorAll(".filter-btn");
+            const productCards = document.querySelectorAll(".product-card");
+
+            // Function to show or hide product cards based on category
+            function filterProducts(category) {
+                productCards.forEach(card => {
+                    const cardCategory = card.dataset.category;
+                    if (cardCategory === category || category === "all") {
+                        card.style.display = "block";
+                    } else {
+                        card.style.display = "none";
+                    }
+                });
+            }
+
+            // Add click event listeners to filter buttons
+            filterButtons.forEach(button => {
+                button.addEventListener("click", function () {
+                    const category = this.dataset.filter;
+                    filterProducts(category);
+                });
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const searchForm = document.getElementById("search-form");
+            const searchInput = document.getElementById("search-input");
+            const productCards = document.querySelectorAll(".product-card");
+
+            // Function to show or hide product cards based on search query
+            function searchProducts(query) {
+                const regex = new RegExp(query, 'gi');
+                productCards.forEach(card => {
+                    const productName = card.querySelector('.font-bold').textContent;
+                    if (productName.match(regex)) {
+                        card.style.display = "block";
+                    } else {
+                        card.style.display = "none";
+                    }
+                });
+            }
+
+            // Add submit event listener to search form
+            searchForm.addEventListener("submit", function (event) {
+                event.preventDefault(); // Prevent form submission
+                const searchQuery = searchInput.value.trim();
+                searchProducts(searchQuery);
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const addToCartButtons = document.querySelectorAll("#add-to-cart-button");
+            const cartCounter = document.getElementById("cart-counter");
+
+            let cartCount = 0;
+
+            // Function to update cart counter and show alert
+            function addToCart() {
+                cartCount++;
+                cartCounter.textContent = cartCount;
+                // alert("Product added to cart successfully");
+            }
+
+            // Add click event listener to each add to cart button
+            addToCartButtons.forEach(button => {
+                button.addEventListener("click", addToCart);
+            });
+        });
+    </script>
+    <!--bug: cart zeroes on each refresh -->
 
 </body>
 </html>
