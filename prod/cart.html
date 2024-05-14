@@ -22,7 +22,10 @@
                     <a class="px-4 hover:text-green-700" href="about.html">About</a>
                     <a class="px-4 hover:text-green-700" href="contact.html">Contact</a>
                     <a class="px-4 hover:text-green-700" href="signin.html">Sign In</a>
-                    <a href="cart.html"><i id="bag" class="fa-solid fa-cart-shopping"></i></a>
+                    <a href="cart.html" class="relative">
+                        <i id="bag cart-icon" class="fa-solid fa-cart-shopping"></i>
+                        <span id="cart-counter" class="absolute top-0 right-3 transform translate-x-1/2 -translate-y-1/2 rounded-full bg-red-500 text-white text-xs px-2 py-1">0</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -53,15 +56,15 @@
                                                 <span class="font-semibold">Beach Shirt</span>
                                             </div>
                                         </td>
-                                        <td class="py-4">Rs 999</td>
+                                        <td class="py-4 price">Rs 999</td>
                                         <td class="py-4">
                                             <div class="flex items-center">
-                                                <button class="border rounded-md py-2 px-4 mr-2 bg-gray-100 hover:bg-gray-200">-</button>
-                                                <span class="text-center w-8">1</span>
-                                                <button class="border rounded-md py-2 px-4 ml-2 bg-gray-100 hover:bg-gray-200">+</button>
+                                                <button class="border rounded-md py-2 px-4 mr-2 bg-gray-100 hover:bg-gray-200 decrement-btn">-</button>
+                                                <span class="text-center w-8 quantity">1</span>
+                                                <button class="border rounded-md py-2 px-4 ml-2 bg-gray-100 hover:bg-gray-200 increment-btn">+</button>
                                             </div>
-                                        </td>
-                                        <td class="py-4">Rs 999</td>
+                                        </td>                                        
+                                        <td class="py-4 total-price">Rs 999</td>
                                     </tr>
 
                                     <tr>
@@ -71,15 +74,15 @@
                                                 <span class="font-semibold">Levi's Casual Shirt</span>
                                             </div>
                                         </td>
-                                        <td class="py-4">Rs 1299</td>
+                                        <td class="py-4 price">Rs 1299</td>
                                         <td class="py-4">
                                             <div class="flex items-center">
-                                                <button class="border rounded-md py-2 px-4 mr-2 bg-gray-100 hover:bg-gray-200">-</button>
-                                                <span class="text-center w-8">1</span>
-                                                <button class="border rounded-md py-2 px-4 ml-2 bg-gray-100 hover:bg-gray-200">+</button>
+                                                <button class="border rounded-md py-2 px-4 mr-2 bg-gray-100 hover:bg-gray-200 decrement-btn">-</button>
+                                                <span class="text-center w-8 quantity">1</span>
+                                                <button class="border rounded-md py-2 px-4 ml-2 bg-gray-100 hover:bg-gray-200 increment-btn">+</button>
                                             </div>
-                                        </td>
-                                        <td class="py-4">Rs 1299</td>
+                                        </td>                                        
+                                        <td class="py-4 total-price">Rs 1299</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -90,21 +93,21 @@
                             <h2 class="text-lg font-semibold mb-4">Summary</h2>
                             <div class="flex justify-between mb-2">
                                 <span>Subtotal</span>
-                                <span>Rs 2298</span>
+                                <span class="subtotal">Rs 0.00</span>
                             </div>
                             <div class="flex justify-between mb-2">
                                 <span>Discount</span>
-                                <span>Rs 298</span>
+                                <span class="discount">Rs 0.00</span>
                             </div>
                             <div class="flex justify-between mb-2">
                                 <span>Shipping</span>
-                                <span>Rs 0.00</span>
+                                <span class="shipping">Rs 0.00</span>
                             </div>
                             <hr class="my-2">
                             <div class="flex justify-between mb-2">
                                 <span class="font-semibold">Total</span>
-                                <span class="font-semibold">Rs 2000</span>
-                            </div>
+                                <span class="font-semibold total">Rs 0.00</span>
+                            </div>                            
                             <div class="mt-5">
                                 <a href="checkout.html" class="bg-blue-500 text-white py-2 px-4 rounded-lg w-full hover:bg-blue-400">Checkout</a>
                             </div>
@@ -220,5 +223,100 @@
         </div>
     </footer>
     <!-- Footer - Ends here -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const addToCartButtons = document.querySelectorAll("#add-to-cart-button");
+            const cartCounter = document.getElementById("cart-counter");
+
+            // Retrieve the cart count from localStorage or set it to 0 if it doesn't exist
+            let cartCount = localStorage.getItem("cartCount") || 0;
+            cartCounter.textContent = cartCount;
+
+            // Function to update cart count in localStorage and show alert
+            function addToCart() {
+                cartCount++;
+                localStorage.setItem("cartCount", cartCount);
+                cartCounter.textContent = cartCount;
+                // alert("Product added to cart successfully");
+            }
+
+            // Add click event listener to each add to cart button
+            addToCartButtons.forEach(button => {
+                button.addEventListener("click", addToCart);
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const decrementButtons = document.querySelectorAll(".decrement-btn");
+            const incrementButtons = document.querySelectorAll(".increment-btn");
+            const quantityFields = document.querySelectorAll(".quantity");
+            const prices = document.querySelectorAll(".price");
+            const totalPrices = document.querySelectorAll(".total-price");
+            const subtotalSpan = document.querySelector(".subtotal");
+            const discountSpan = document.querySelector(".discount");
+            const shippingSpan = document.querySelector(".shipping");
+            const totalSpan = document.querySelector(".total");
+            const cartTable = document.querySelector(".cart-table");
+
+            // Function to update total price based on quantity
+            function updateTotalPrice(index) {
+                const quantity = parseInt(quantityFields[index].textContent);
+                const price = parseFloat(prices[index].textContent.replace("Rs ", ""));
+                totalPrices[index].textContent = "Rs " + (quantity * price);
+            }
+
+            // Event listener for decrement button
+            decrementButtons.forEach((button, index) => {
+                button.addEventListener("click", function () {
+                    let quantity = parseInt(quantityFields[index].textContent);
+                    if (quantity > 0) {
+                        quantity--;
+                        quantityFields[index].textContent = quantity;
+                        updateTotalPrice(index);
+                    }
+                });
+            });
+
+            // Event listener for increment button
+            incrementButtons.forEach((button, index) => {
+                button.addEventListener("click", function () {
+                    let quantity = parseInt(quantityFields[index].textContent);
+                    quantity++;
+                    quantityFields[index].textContent = quantity;
+                    updateTotalPrice(index);
+                });
+            });
+
+            // Function to calculate subtotal
+            function calculateSubtotal() {
+                let subtotal = 0;
+                totalPrices.forEach((price, index) => {
+                    const quantity = parseInt(quantityFields[index].textContent);
+                    subtotal += parseFloat(price.textContent.replace("Rs ", "")) * quantity;
+                });
+                return subtotal;
+            }
+
+            // Function to update summary section
+            function updateSummary() {
+                const subtotal = calculateSubtotal();
+                const discount = 0; // No discount applied
+                const shipping = 0; // No shipping cost
+                const total = subtotal + shipping - discount;
+
+                subtotalSpan.textContent = "Rs " + subtotal.toFixed(2);
+                discountSpan.textContent = "Rs " + discount.toFixed(2);
+                shippingSpan.textContent = "Rs " + shipping.toFixed(2);
+                totalSpan.textContent = "Rs " + total.toFixed(2);
+            }
+
+            // Initial calculation
+            updateSummary();
+        });
+    </script>
+
 </body>
 </html>
+
+<!-- bug: summary section does not update on quantity changes -->

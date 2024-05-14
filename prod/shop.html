@@ -41,9 +41,9 @@
                     <a class="px-4 hover:text-green-700" href="about.html">About</a>
                     <a class="px-4 hover:text-green-700" href="contact.html">Contact</a>
                     <a class="px-4 hover:text-green-700" href="signin.html">Sign In</a>
-                    <a href="cart.html">
+                    <a href="cart.html" class="relative">
                         <i id="bag cart-icon" class="fa-solid fa-cart-shopping"></i>
-                        <span id="cart-counter" class="text-xs">0</span>
+                        <span id="cart-counter" class="absolute top-0 right-3 transform translate-x-1/2 -translate-y-1/2 rounded-full bg-red-500 text-white text-xs px-2 py-1">0</span>
                     </a>
                 </div>
             </div>
@@ -799,13 +799,16 @@
             const addToCartButtons = document.querySelectorAll("#add-to-cart-button");
             const cartCounter = document.getElementById("cart-counter");
 
-            let cartCount = 0;
+            // Retrieve the cart count from localStorage or set it to 0 if it doesn't exist
+            let cartCount = localStorage.getItem("cartCount") || 0;
+            cartCounter.textContent = cartCount;
 
-            // Function to update cart counter and show alert
+            // Function to update cart count in localStorage and show alert
             function addToCart() {
                 cartCount++;
+                localStorage.setItem("cartCount", cartCount);
                 cartCounter.textContent = cartCount;
-                // alert("Product added to cart successfully");
+                alert("Product added to cart successfully");
             }
 
             // Add click event listener to each add to cart button

@@ -15,6 +15,7 @@
             <div>
                 <img class="h-12 w-auto" src="./img/logo.png" alt="Logo">
             </div>
+
             <div class="pt-2">
                 <div class="text-xl">
                     <a class="px-4 hover:text-green-700" href="index.html">Home</a>
@@ -22,7 +23,10 @@
                     <a class="px-4 hover:text-green-700" href="about.html">About</a>
                     <a class="px-4 hover:text-green-700" href="contact.html">Contact</a>
                     <a class="px-4 hover:text-green-700" href="signin.html">Sign In</a>
-                    <a href="cart.html"><i id="bag" class="fa-solid fa-cart-shopping"></i></a>
+                    <a href="cart.html" class="relative">
+                        <i id="bag cart-icon" class="fa-solid fa-cart-shopping"></i>
+                        <span id="cart-counter" class="absolute top-0 right-3 transform translate-x-1/2 -translate-y-1/2 rounded-full bg-red-500 text-white text-xs px-2 py-1">0</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -321,6 +325,29 @@
         </div>
     </footer>
     <!-- Footer - Ends here -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const addToCartButtons = document.querySelectorAll("#add-to-cart-button");
+            const cartCounter = document.getElementById("cart-counter");
+
+            // Retrieve the cart count from localStorage or set it to 0 if it doesn't exist
+            let cartCount = localStorage.getItem("cartCount") || 0;
+            cartCounter.textContent = cartCount;
+
+            // Function to update cart count in localStorage and show alert
+            function addToCart() {
+                cartCount++;
+                localStorage.setItem("cartCount", cartCount);
+                cartCounter.textContent = cartCount;
+                // alert("Product added to cart successfully");
+            }
+
+            // Add click event listener to each add to cart button
+            addToCartButtons.forEach(button => {
+                button.addEventListener("click", addToCart);
+            });
+        }); 
+    </script>
 
 </body>
 </html>
